@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Depth first search</title>
+		<link href="../static/css/Content.css" type="text/css" rel="stylesheet"/>
+	</head>
+	<body>
+
+        {% with message = get_flashed_messages() %}
+            {% if message %}
+                <div class="result" style="color: red">{{ message }}</div>
+            {% endif %}
+        {% endwith %}
+
+		<a href="{{ url_for('main') }}"><div class="return">Return<br/>Back</div></a>
+		<div class="body">
+			<!-- 标题部分 -->
+			<div class="body_title">Depth first search</div>
+			<!-- 代码运行展示部分 -->
+			<div class="show">
+				<p>(Click Play to run the code to show the sorting process)</p>
+				<a href="https://algorithm-visualizer.org/brute-force/depth-first-search" target="_blank">You can also click here to jump to the demo page</a>
+				<video style="width: 100%; height: 700px;" controls>
+                    <source src="../static/img/depth_first_search_video.mp4" type="video/mp4">
+                </video>
+			</div>
+			<!-- 算法讲解部分 -->
+			<div class="body_content">
+				<div class="content_title">Theory:</div>
+				<div class="content_text">
+                    <ul>
+                        <li>
+                            Depth-first search algorithm is a kind of search algorithm.It traverses the nodes of
+                            the tree at the depth of the tree, searching branches of the tree as deep as possible.
+                            When all edges of node V have been explored, the search will trace back to the starting
+                            node of the edge of the node V found.This process continues until all nodes reachable
+                            from the source node have been discovered.If there are still undiscovered nodes, select
+                            one of them as the source node and repeat the process until all nodes are accessed.
+                            DFS is a blind search.
+                        </li>
+                    </ul>
+                </div>
+				<div class="content_title">Code (Java):</div>
+                    <img src="../static/img/depth_first_search_code.png" style="width: 70%; height: auto;">
+                <div class="content_title">Tips：</div>
+				<div class="content_text">
+                    <ol>
+                        <li>Access vertex V</li>
+                        <li>The depth-first traversal of the graph is carried out from the unvisited adjacency points of V in turn. Until all vertices in the graph that are paths to V are accessed</li>
+                        <li>If there are still unvisited vertices in the graph at this time, a depth-first traversal is performed again from an unvisited vertex until all vertices in the graph have been accessed.</li>
+                    </ol>
+				</div>
+				<div class="content_title">Complexity:</div>
+				<div class="content_text">
+                    <ul>
+                        <li>The time complexity is O(n), because each edge is accessed at most twice</li>
+                        <li>Space complexity O(n)</li>
+                    </ul>
+				</div>
+				<div class="content_title">Application scenarios:</div>
+				<div class="content_text">
+                    <ul>
+                        <li>For map - like algorithms, such as navigation or maze running.</li>
+                        <li>
+                            Take "maze" as an example. Choose a fork in the road at will.
+                            When you find that you can't make it, go back to the last fork
+                            in the road and choose another road to continue until you finally
+                            find the exit. This move is a depth-first search strategy.
+                        </li>
+                        <li>It's retrospective thinking.</li>
+                        <li>The depth-first search finds a path that is not a shortest path.</li>
+                    </ul>
+				</div>
+			</div>
+
+            {% if posts %}
+                <br><br>
+                <hr><hr><br>
+                <div class="post_title">Comment Area:</div>
+                {% for post in posts %}
+		            <div class="post" style="margin-left:30px; color: white">{{ post.author_id }}</div>
+		            <div class="post" style="margin-left:30px; color: white">{{ post.create_date }}</div>
+		            <div class="post" style="margin-left:30px; border-style:double; color: white" >{{ post.comment }}</div><br><br>
+                {% endfor %}
+            {% else %}
+                <br><br>
+                <hr><br>
+                <div class="post" style="margin-left:30px; color: white">No post here. You can publish one first.</div><br><br>
+            {% endif %}
+
+            <form action="" method="post" novalidate style="width: 100%;">
+                {{ form.hidden_tag() }}
+                <div class="comment_body" >{{ form.content }}</div>
+                <div class="comment_submit">{{ form.submit }}</div>
+            </form>
+
+		</div>
+
+		<div class="footing">
+			@Yunkai.li
+			<br />
+			Reference by <a href="https://algorithm-visualizer.org/">https://algorithm-visualizer.org/</a>
+		</div>
+	</body>
+</html>

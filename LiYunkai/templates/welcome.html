@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Welcome Page</title>
+		<link href="../static/css/welcome.css" type="text/css" rel="stylesheet" />
+		<script type="text/javascript" src="../static/js/welcome.js"></script>
+	</head>
+  
+	<body>
+		<article>
+			<!-- 首页 -->
+			<section data-delighter class="splash">
+				<h1 data-delighter class="right">Welcome to the web of Yunkai.Li我叫黎耘恺</h1>
+				<h5 data-delighter class="left">
+					Just a little algorithm.
+					<br />
+					Share, and welcome.
+					</h5>
+					<div class="continue"/>
+					Slide down ---- To be continue......
+					</h3>
+			</section>
+			
+			<!-- 第二页 -->
+			<section >
+				<h2 data-delighter class="left">Content</h2>
+				<div class="box">1. Introduce myself</div>
+				<div class="box">2. About the site</div>
+				<div class="box">3. To login</div>
+			</section>
+			
+			<!-- 第三页 -->
+			<section>
+				<h2 data-delighter class="left">About myslef</h2>
+				<ul data-delighter>
+					<li>name: Yunkai.Li</li>
+					<br />
+					<li>class: Software Engineer 3</li>
+					<br />
+					<li>email: yunkai.Li@ucdconnect.ie</li>
+					<br />
+					<li>UCD number: 18206372</li>
+				</ul>
+			</section>
+			
+			<!-- 第四页 -->
+			<section>
+				<h2 data-delighter class="left">About site</h2>
+				<ul data-delighter>
+					<li>Main about the algorithm I have learned</li>
+					<br />
+					<li>Some very important algorithm</li>
+					<br />
+					<li>Some interesting algorithm</li>
+					<br />
+					<li>Maybe more......</li>
+				</ul>
+			</section>
+			
+			<!-- 第五页 -->
+			<section data-delighter>
+				<h2 data-delighter="right">If you want konw more</h2>
+				<p>
+					<br />
+					<br />
+					Click here to login!
+				</p>
+				<a class="box" href="{{ url_for('signin') }}">Login</a>
+			</section>
+		</article>
+	</body>
+</html>

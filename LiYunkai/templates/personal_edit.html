@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Personal Information</title>
+    <link href="../static/css/personal.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+    <div class="container">
+			<div class="wrapper">
+
+				<div class="heading">
+					<div class="heading_nav">
+						<div class="heading_title">
+							Algorithm
+						</div>
+						<div class="heading_navbar">
+							<ul>
+								<li><a href="{{ url_for('main') }}">Classical Algorithm</a></li>
+								<li><a href="{{ url_for('newAlgorithm') }}">Create new algorithm</a></li>
+                                <li><a href="{{ url_for('logout') }}">Log out</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="body">
+
+                {% with message = get_flashed_messages() %}
+                    {% if message %}
+                        <div class="result" style="color: red">{{ message }}</div>
+                    {% endif %}
+                {% endwith %}
+
+                    <div class="box">
+                        <div class="content">
+                            <h1 class="content_title">Let's complete your profile</h1>
+                            <form class="form_big" action="" method="post" enctype="multipart/form-data" novalidate>
+                                {{ form.hidden_tag() }}
+
+                                <p class="form_lable">
+                                    {{ form.nickname.label }}
+                                </p>
+                                <p class="form_edit">
+                                    {{ form.nickname }}
+                                </p>
+
+                                <p class="form_lable">
+                                    {{ form.fullname.label }}
+                                </p>
+                                <p class="form_edit">
+                                    {{ form.fullname }}
+                                </p>
+
+                                <p class="form_lable">
+                                    {{ form.birthday.label }}
+                                </p>
+                                <p class="form_edit">
+                                    {{ form.birthday (id="birthday")}}
+                                </p>
+
+                                <p class="form_lable">
+                                    {{ form.gender.label }}
+                                </p>
+                                <p class="form_edit">
+                                    {{ form.gender }}
+                                </p>
+
+                                <p class="form_lable">
+                                    {{ form.avatar.label }}
+                                </p>
+                                <p class="form_edit">
+                                    {{ form.avatar }}
+                                </p>
+
+                                <p class="form_lable">
+                                    {{ form.country.label }}
+                                </p>
+                                <p class="form_edit">
+                                    {{ form.country }}
+                                </p>
+
+                                <p class="form_lable">
+                                    {{ form.presentation.label }}
+                                </p>
+                                <p class="form_edit">
+                                    {{ form.presentation }}
+                                </p>
+
+                                <div class="content_button">{{ form.submit (id="submitBtn") }}</div>
+                            </form>
+                        </div>
+                    </div>
+				</div>
+			</div>
+
+			<div class="footing">
+				@Yunkai.li
+				<br />
+				Reference by <a class="foot_a" href="https://algorithm-visualizer.org/">https://algorithm-visualizer.org/</a>
+			</div>
+		</div>
+
+</body>
+<script type="text/javascript" src="../static/js/personal_edit.js" ></script>
+</html>

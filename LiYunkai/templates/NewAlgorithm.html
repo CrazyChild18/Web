@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>DIY Algorithm</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet"  href="../static/css/main.css" type="text/css">
+</head>
+<body>
+    <div class="container">
+    <div class="wrapper">
+        <div class="heading">
+            <div class="heading_nav">
+                <div class="heading_title">
+                    Algorithm
+                </div>
+                <div class="heading_navbar">
+                    <ul>
+                        <li><a href="{{ url_for('main') }}">Classical Algorithm</a></li>
+                        <li><a href="{{ url_for('newAlgorithm') }}">User DIY Algorithm</a></li>
+                        <li><a href="{{ url_for('logout') }}">Log out</a></li>
+                    </ul>
+                </div>
+                <a href="{{ url_for('personal') }}" class="heading_img">
+                    <img src="{{ path }}"/>
+                </a>
+            </div>
+        </div>
+            <a href="{{ url_for('diy_algorithm_edit') }}"><div class="return">Add<br/>Mine</div></a>
+            <div class="body">
+
+                {% if algorithm %}
+                    {% for i in algorithm %}
+                        <div>
+                            <a href="{{ url_for('diy_algorithm', name=i.name) }}">
+                                <button class="custom-btn"><span>{{ i.name }}</span></button>
+                            </a>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+
+            </div>
+        </div>
+
+        <div class="footing">
+            @Yunkai.li
+            <br />
+            Reference by <a class="foot_a" href="https://algorithm-visualizer.org/">https://algorithm-visualizer.org/</a>
+        </div>
+    </div>
+
+
+</body>
+</html>

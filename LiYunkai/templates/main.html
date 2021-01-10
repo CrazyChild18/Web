@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Welcome To the page of Yunkai.Li</title>
+		<link href="../static/css/main.css" type="text/css" rel="stylesheet"/>
+	</head>
+	<body>
+		<div class="container">
+			<div class="wrapper">
+
+				<div class="heading">
+					<div class="heading_nav">
+						<div class="heading_title">
+							Algorithm
+						</div>
+						<div class="heading_navbar">
+							<ul>
+								<li><a href="{{ url_for('main') }}">Classical Algorithm</a></li>
+								<li><a href="{{ url_for('newAlgorithm') }}">User DIY Algorithm</a></li>
+                                <li><a href="{{ url_for('logout') }}">Log out</a></li>
+							</ul>
+						</div>
+						<a href="{{ url_for('personal') }}" class="heading_img">
+                            <img src="{{ path }}"/>
+						</a>
+					</div>
+				</div>
+
+				<div class="body">
+					<div>
+						<img class="list_picture" src="../static/img/bucket_sort.gif">
+						<a href="{{ url_for('bucket_sort') }}">
+							<button class="custom-btn"><span>Bucket Sort</span></button>
+						</a>
+					</div>
+
+                    <div>
+                        <img class="list_picture" src="../static/img/bubble_sort_logo.gif">
+                        <a href="{{ url_for('bubble_sort') }}">
+                            <button class="custom-btn"><span>Bubble Sort</span></button>
+                        </a>
+                    </div>
+
+                    <div>
+                        <img class="list_picture" src="../static/img/binary_search_logo.jpg">
+                        <a href="{{ url_for('binary_search') }}">
+                            <button class="custom-btn"><span>Binary Search</span></button>
+                        </a>
+                    </div>
+
+                    <div>
+                        <img class="list_picture" src="../static/img/depth_first_search_logo.gif">
+                        <a href="{{ url_for('depth_first_search') }}">
+                            <button class="custom-btn"><span>Depth-first Search</span></button>
+                        </a>
+                    </div>
+
+                    <div>
+                        <img class="list_picture" src="../static/img/breadth_first_search_logo.gif">
+                        <a href="{{ url_for('breadth_first_search') }}">
+                            <button class="custom-btn"><span>Breadth-first Search</span></button>
+                        </a>
+                    </div>
+
+                    <div>
+                        <img class="list_picture" src="../static/img/dynamic_programming.jpg">
+                        <a href="{{ url_for('dynamic_programming') }}">
+                            <button class="custom-btn"><span>Dynamic Programming</span></button>
+                        </a>
+                    </div>
+				</div>
+			</div>
+
+			<div class="footing">
+				@Yunkai.li
+				<br />
+				Reference by <a class="foot_a" href="https://algorithm-visualizer.org/">https://algorithm-visualizer.org/</a>
+			</div>
+		</div>
+	</body>
+
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Personal Information</title>
+    <link href="../static/css/algorithm_edit.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+    <div class="container">
+			<div class="wrapper">
+
+				<div class="heading">
+					<div class="heading_nav">
+						<div class="heading_title">
+							Algorithm
+						</div>
+						<div class="heading_navbar">
+							<ul>
+								<li><a href="{{ url_for('main') }}">Classical Algorithm</a></li>
+								<li><a href="{{ url_for('newAlgorithm') }}">Create new algorithm</a></li>
+                                <li><a href="{{ url_for('logout') }}">Log out</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="body">
+
+                    <div class="box">
+                        <div class="content">
+                            <h1 class="content_title">Share your idea</h1>
+                            <form class="form_big" action="" method="post" enctype="multipart/form-data" novalidate>
+                                {{ form.hidden_tag() }}
+
+                                <p class="form_lable">
+                                    {{ form.name.label }}
+                                </p>
+                                <p class="form_edit">
+                                    {{ form.name }}
+                                </p>
+
+                                <p class="form_lable">
+                                    {{ form.theory.label }}
+                                </p>
+                                <p class="form_edit">
+                                    {{ form.theory }}
+                                </p>
+
+                                <p class="form_lable">
+                                    {{ form.complexity.label }}
+                                </p>
+                                <p class="form_edit">
+                                    {{ form.complexity }}
+                                </p>
+
+                                <p class="form_lable">
+                                    {{ form.application.label }}
+                                </p>
+                                <p class="form_edit">
+                                    {{ form.application }}
+                                </p>
+
+                                <p class="form_lable">
+                                    {{ form.code_pic.label }}
+                                </p>
+                                <p class="form_edit">
+                                    {{ form.code_pic }}
+                                </p>
+
+                                <div class="content_button">{{ form.submit }}</div>
+                            </form>
+                        </div>
+                    </div>
+				</div>
+			</div>
+
+			<div class="footing">
+				@Yunkai.li
+				<br />
+				Reference by <a class="foot_a" href="https://algorithm-visualizer.org/">https://algorithm-visualizer.org/</a>
+			</div>
+		</div>
+
+</body>
+</html>

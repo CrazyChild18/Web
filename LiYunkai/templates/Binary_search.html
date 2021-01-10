@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Binary Search</title>
+		<link href="../static/css/Content.css" type="text/css" rel="stylesheet"/>
+	</head>
+	<body>
+
+        {% with message = get_flashed_messages() %}
+            {% if message %}
+                <div class="result" style="color: red">{{ message }}</div>
+            {% endif %}
+        {% endwith %}
+
+		<a href="{{ url_for('main') }}"><div class="return">Return<br/>Back</div></a>
+		<div class="body">
+			<!-- 标题部分 -->
+			<div class="body_title">Binary Search</div>
+			<!-- 代码运行展示部分 -->
+			<div class="show">
+				<p>(Click Play to run the code to show the sorting process)</p>
+				<a href="https://algorithm-visualizer.org/branch-and-bound/binary-search" target="_blank">You can also click here to jump to the demo page</a>
+				<video style="width: 100%; height: 700px;" controls>
+                    <source src="../static/img/BinarySearch_video.mp4" type="video/mp4">
+                </video>
+			</div>
+			<!-- 算法讲解部分 -->
+			<div class="body_content">
+				<div class="content_title">Theory:</div>
+				<div class="content_text">
+                    <ul>
+                        <li>Binary search algorithm is a search algorithm that looks for a particular element in an ordered array.
+                    The search process starts with the middle element of the array.If the middle element
+                    happens to be the element you are looking for, the search process ends.If a particular
+                    element is greater than or less than the middle element, it looks in the half of the array
+                    that is greater than or less than the middle element, and starts from the middle element as
+                    it started.</li>
+                    </ul>
+                </div>
+				<div class="content_title">Code (Java):</div>
+                    <img src="../static/img/binary_search_code.png" style="width: 70%; height: auto;">
+                <div class="content_title">Tips：</div>
+				<div class="content_text">
+                    <ol>
+                        <li>This search algorithm reduces the search area by half each time it is compared.</li>
+                        <li>Binary search requires the data to be ordered. If the data is not ordered, it needs to be sorted first.</li>
+                        <li>Binary search cannot depend on other structures such as linked list, mainly because binary search algorithm requires random access to elements according to subscript, and the time complexity of random access to linked list is O(n). Using linked list storage, the time complexity of binary search will become very high.</li>
+                    </ol>
+				</div>
+				<div class="content_title">Complexity:</div>
+				<div class="content_text">
+                    <ul>
+                        <li>The length of the lookup data is N, and each lookup is halved to N/2.<br>
+                        Therefore, the KTH power is: N/2^k<br>
+                        The Worst Situation: At the KTH time, there's only one data, length 1. So: N/2^k = 1, and k=log(N).</li>
+                    </ul>
+				</div>
+				<div class="content_title">Application scenarios:</div>
+				<div class="content_text">
+                    <ul>
+                        <li>Binary search can filter out half of the data at each judgment, which is much more efficient
+                    than linear search with full traversal, but it can only return one value. If there are
+                    multiple values in the array, its limitations immediately become apparent. Also,
+                    if there are some non-comparable elements in the array (such as strings), the array cannot
+                    be sorted according to the natural order of its elements, so the result is indeterminate.</li>
+                        <li>Therefore, when choosing a lookup method, you need to consider many factors such as the
+                    type of array you are looking for and what you are looking for (binary search can be used
+                    if you are only looking for the presence of the number in the array, and binary
+                    search is ignored if you are looking for all the positions of the number in the array).</li>
+                    </ul>
+				</div>
+			</div>
+
+            {% if posts %}
+                <br><br>
+                <hr><hr><br>
+                <div class="post_title">Comment Area:</div>
+                {% for post in posts %}
+		            <div class="post" style="margin-left:30px; color: white">{{ post.author_id }}</div>
+		            <div class="post" style="margin-left:30px; color: white">{{ post.create_date }}</div>
+		            <div class="post" style="margin-left:30px; border-style:double; color: white" >{{ post.comment }}</div><br><br>
+                {% endfor %}
+            {% else %}
+                <br><br>
+                <hr><br>
+                <div class="post" style="margin-left:30px; color: white">No post here. You can publish one first.</div><br><br>
+            {% endif %}
+
+            <form action="" method="post" novalidate style="width: 100%;">
+                {{ form.hidden_tag() }}
+                <div class="comment_body" >{{ form.content }}</div>
+                <div class="comment_submit">{{ form.submit }}</div>
+            </form>
+
+		</div>
+
+		<div class="footing">
+			@Yunkai.li
+			<br />
+			Reference by <a href="https://algorithm-visualizer.org/">https://algorithm-visualizer.org/</a>
+		</div>
+	</body>
+</html>

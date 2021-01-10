@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="../static/css/personal.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+
+    <div class="container">
+			<div class="wrapper">
+
+				<div class="heading">
+					<div class="heading_nav">
+						<div class="heading_title">
+							Algorithm
+						</div>
+						<div class="heading_navbar">
+							<ul>
+								<li><a href="{{ url_for('main') }}">Classical Algorithm</a></li>
+								<li><a href="{{ url_for('newAlgorithm') }}">Create new algorithm</a></li>
+                                <li><a href="{{ url_for('logout') }}">Log out</a></li>
+							</ul>
+						</div>
+						<a href="{{ url_for('personal') }}" class="heading_img">
+                            <img src="{{ path }}"/>
+						</a>
+					</div>
+				</div>
+				<div class="body">
+
+                    <div class="box">
+                        <div class="content">
+                            <h1 class="content_title">Self Information</h1>
+                            <p class="content_pic"><img src="{{ path }}" style="width: 25%"/></p>
+                            <p class="content_info_l">Nickname:</p>
+                            <p class="content_info_b_r">{{ information.nickname }}</p>
+                            <p class="content_info_l">Fullname:</p>
+                            <p class="content_info_b_r">{{ information.fullname }}</p>
+                            <p class="content_info_l">Birthday:</p>
+                            <p class="content_info_b_r">{{ information.birthday }}</p>
+                            <p class="content_info_l">Gender:</p>
+                            <p class="content_info_b_r">{{ information.gender }}</p>
+                            <p class="content_info_l">Country:</p>
+                            <p class="content_info_b_r">{{ information.country }}</p>
+                            <p class="content_info_l">Introduction:</p>
+                            <p class="content_info_b_r">{{ information.presentation }}</p>
+                        </div>
+                    </div>
+
+                    <center><a href="{{ url_for('personalEdit') }}" class="content_button">Edit My Information</a></center>
+
+				</div>
+			</div>
+
+			<div class="footing">
+				@Yunkai.li
+				<br />
+				Reference by <a class="foot_a" href="https://algorithm-visualizer.org/">https://algorithm-visualizer.org/</a>
+			</div>
+		</div>
+
+</body>
+</html>

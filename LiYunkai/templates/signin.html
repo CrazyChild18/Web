@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>SignIn</title>
+    <link href="../static/css/Login.css" type="text/css" rel="stylesheet"/>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="container">
+            <h1 style="color: white; margin: 0; text-align: center">Sign up</h1>
+            {% with message = get_flashed_messages() %}
+                {% if message %}
+                    <div class="result" style="color: blue">{{ message }}</div>
+                {% endif %}
+            {% endwith %}
+            <form action="" method="post" novalidate>
+                {{ form.hidden_tag() }}
+
+                <label class="box">{{ form.username }}</label>
+                <label class="box">{{ form.email (id="email")}}</label>
+                <label class="box">{{ form.password }}</label>
+                <label class="box">{{ form.passwordConfirm }}</label>
+
+                <label class="submit">{{ form.submit (id="submitBtn") }}</label>
+
+                <p class="change_link" style="text-align: center">
+                    <span class="text">Already a member ?</span>
+                    <a href="{{ url_for('login') }}" class="to_login"> Go and log in </a>
+                </p>
+            </form>
+        </div>
+
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</body>
+    <script type="text/javascript" src="../static/js/signin.js" ></script>
+
+</html>

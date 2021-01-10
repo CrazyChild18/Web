@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Bucket_Sort</title>
+		<link href="../static/css/Content.css" type="text/css" rel="stylesheet"/>
+	</head>
+	<body>
+
+        {% with message = get_flashed_messages() %}
+            {% if message %}
+                <div class="result" style="color: red">{{ message }}</div>
+            {% endif %}
+        {% endwith %}
+
+		<a href="{{ url_for('newAlgorithm') }}"><div class="return">Return<br/>Back</div></a>
+		<div class="body">
+			<!-- 标题部分 -->
+            {% if name %}
+			    <div class="body_title">{{ name }}</div>
+            {% endif %}
+			<!-- 算法讲解部分 -->
+			<div class="body_content">
+				<div class="content_title">Theory:</div>
+				<div class="content_text">
+                    <ul>
+                        <li>
+                            {{ algorithm_in_db.theory }}
+                        </li>
+                    </ul>
+				</div>
+				<div class="content_title">Tips：</div>
+				<div class="content_text">
+                    <ol>
+                        <li>{{ algorithm_in_db.tip }}</li>
+                    </ol>
+				</div>
+				<div class="content_title">Complexity:</div>
+				<div class="content_text">
+                    <ul>
+                        <li>
+                            {{ algorithm_in_db.complexity }}
+                        </li>
+                    </ul>
+				</div>
+				<div class="content_title">Application scenarios:</div>
+				<div class="content_text">
+                    <ul>
+                        <li>
+                            {{ algorithm_in_db.application }}
+                        </li>
+                    </ul>
+				</div>
+                <div class="content_title">Code:</div>
+                    <img src="{{ path }}" style="width: 70%; height: auto;">
+			</div>
+
+        {% if posts %}
+                <br><br>
+                <hr><hr><br>
+                <div class="post_title">Comment Area:</div>
+                {% for post in posts %}
+		            <div class="post" style="margin-left:30px; color: white">{{ post.author_id }}</div>
+		            <div class="post" style="margin-left:30px; color: white">{{ post.create_date }}</div>
+		            <div class="post" style="margin-left:30px; border-style:double; color: white" >{{ post.comment }}</div><br><br>
+                {% endfor %}
+            {% else %}
+                <br><br>
+                <hr><br>
+                <div class="post">No post here. You can publish one first.</div><br><br>
+            {% endif %}
+
+            <form action="" method="post" novalidate style="width: 100%;">
+                {{ form.hidden_tag() }}
+                <div class="comment_body" >{{ form.content }}</div>
+                <div class="comment_submit">{{ form.submit }}</div>
+            </form>
+
+		</div>
+
+		<div class="footing">
+			@Yunkai.li
+			<br />
+			Reference by <a href="https://algorithm-visualizer.org/">https://algorithm-visualizer.org/</a>
+		</div>
+	</body>
+</html>

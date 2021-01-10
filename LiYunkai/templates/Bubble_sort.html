@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Bubble Sort</title>
+		<link href="../static/css/Content.css" type="text/css" rel="stylesheet"/>
+	</head>
+	<body>
+
+        {% with message = get_flashed_messages() %}
+            {% if message %}
+                <div class="result" style="color: red">{{ message }}</div>
+            {% endif %}
+        {% endwith %}
+
+		<a href="{{ url_for('main') }}"><div class="return">Return<br/>Back</div></a>
+		<div class="body">
+			<!-- 标题部分 -->
+			<div class="body_title">Bubble Sort</div>
+			<!-- 代码运行展示部分 -->
+			<div class="show">
+				<p>(Click Play to run the code to show the sorting process)</p>
+				<a href="https://algorithm-visualizer.org/brute-force/bubble-sort" target="_blank">You can also click here to jump to the demo page</a>
+				<video style="width: 100%; height: 700px;" controls>
+                    <source src="../static/img/bubble_sort.mp4" type="video/mp4">
+                </video>
+			</div>
+			<!-- 算法讲解部分 -->
+			<div class="body_content">
+				<div class="content_title">Theory:</div>
+				<div class="content_text">
+                    <ul>
+                        <li>
+                            Bubble sort is a simple sorting algorithm. It repeatedly visits the sequence to be sorted, compares the two elements in turn, and swaps them if they are in the wrong order. The job of visiting the sequence is to repeat until no exchange is needed, at which time the sequence has been sorted. The algorithm's name comes from the fact that the smaller the element, the smaller it is, floats slowly to the top of the list.				</div>
+                        </li>
+                    </ul>
+				<div class="content_title">Code (Java):</div>
+                <img src="../static/img/bubble_sort_code.png" style="width: 70%; height: auto;">
+                <div class="content_title">Tips：</div>
+				<div class="content_text">
+                    <ol>
+                        <li>Each sort operation can only find a maximum or minimum value (traditional way)</li>
+                        <li>N numbers need to be sorted, and a total of N-1 times of sorting is performed, and the number of sorting per I trip is (n-i) times. Therefore, a double loop statement can be used, with the outer layer controlling the number of cycles, and the inner layer controlling the number of cycles per trip</li>
+                    </ol>
+				</div>
+				<div class="content_title">Complexity:</div>
+				<div class="content_text">
+                    <ul>
+                        <li>Best Case：T(n) = O(n) : When the input data is already in positive order</li>
+                        <li>Worst Case：T(n) = O(n^2) : When the input data is in reverse order</li>
+                        <li>Average Case：T(n) = O(n^2) : Average time complexity is independent of the state of the data</li>
+                    </ul>
+				</div>
+				<div class="content_title">Application scenarios:</div>
+				<div class="content_text">
+                    <ul>
+                        <li>
+                            If the data itself is already not far from the final sorted result, bubble sort may be faster by adding an exchange flag.However, it has to be admitted that bubble sort is not universal in scenes with high performance requirements.
+                        </li>
+                    </ul>
+				</div>
+			</div>
+
+            {% if posts %}
+                <br><br>
+                <hr><hr><br>
+                <div class="post_title">Comment Area:</div>
+                {% for post in posts %}
+		            <div class="post" style="margin-left:30px; color: white">{{ post.author_id }}</div>
+		            <div class="post" style="margin-left:30px; color: white">{{ post.create_date }}</div>
+		            <div class="post" style="margin-left:30px; border-style:double; color: white" >{{ post.comment }}</div><br><br>
+                {% endfor %}
+            {% else %}
+                <br><br>
+                <hr><br>
+                <div class="post" style="margin-left:30px; color: white">No post here. You can publish one first.</div><br><br>
+            {% endif %}
+
+            <form action="" method="post" novalidate style="width: 100%;">
+                {{ form.hidden_tag() }}
+                <div class="comment_body" >{{ form.content }}</div>
+                <div class="comment_submit">{{ form.submit }}</div>
+            </form>
+
+		</div>
+
+		<div class="footing">
+			@Yunkai.li
+			<br />
+			Reference by <a href="https://algorithm-visualizer.org/">https://algorithm-visualizer.org/</a>
+		</div>
+	</body>
+</html>
